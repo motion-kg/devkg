@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+## Руководство по интеграции frontend приложения devkg
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Введение в devkg**
 
-## Available Scripts
+devkg - это одна из крупнейших российских платформ для поиска работы в IT-сфере и коллаборации ([https://devkg.com/ru](https://devkg.com/ru)). Это руководство предполагает базовое понимание веб-разработки и API.
 
-In the project directory, you can run:
+**API документация**
 
-### `yarn start`
+Полная документация API Piccolo Server доступна по адресу: http://3.38.98.134/docs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Обзор API Piccolo Server**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Это версия 1.0 API Piccolo Server, использующая спецификацию OpenAPI (OAS) 3.0. Документация предоставляет подробную информацию о каждом конечном пункте, включая методы запросов, ожидаемые форматы данных и структуры ответов.
 
-### `yarn test`
+**API конечные точки**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ниже представлен список доступных API конечных точек, сгруппированных по функциональности:
 
-### `yarn build`
+* **Авторизация (auth):**
+    * `/auth/signup`: Регистрация нового пользователя.
+    * `/auth/login`: Вход с использованием имени пользователя и пароля.
+* **События (events):**
+    * `/events`: (GET) Получить все события. (POST) Создать новое событие.
+    * `/events/{id}`: (GET) Получить детали конкретного события по ID. (PATCH) Обновить существующее событие. (DELETE) Удалить событие.
+    * `/events/reset`: Очистить все данные событий.
+* **Слова (words):**
+    * `/words`: Получить список всех возможных слов длиной 5 символов.
+* **Вакансии (jobs):**
+    * `/jobs`: (GET) Получить все вакансии. (POST) Создать новую вакансию.
+    * `/jobs/{id}`: (GET) Получить детали конкретной вакансии по ID. (PATCH) Обновить существующую вакансию. (DELETE) Удалить вакансию.
+    * `/jobs/reset`: Очистить все данные вакансий.
+* **Митапы (meetups):**
+    * `/meetups`: (GET) Получить все митапы. (POST) Создать новый митап.
+    * `/meetups/{id}`: (GET) Получить детали конкретного митапа по ID. (PATCH) Обновить существующий митап. (DELETE) Удалить митап.
+    * `/meetups/reset`: Очистить все данные митапов.
+* **Организации (organizations):**
+    * `/organizations`: (GET) Получить все организации. (POST) Создать новую организацию.
+    * `/organizations/{id}`: (GET) Получить детали конкретной организации по ID. (PATCH) Обновить существующую организацию. (DELETE) Удалить организацию.
+    * `/organizations/reset`: Очистить все данные организаций.
+* **Сообщество (community):**
+    * `/community`: (GET) Получить все записи сообщества. (POST) Создать новую запись сообщества.
+    * `/community/{id}`: (GET) Получить детали конкретной записи сообщества по ID. (PATCH) Обновить существующую запись сообщества. (DELETE) Удалить запись сообщества.
+    * `/community/reset`: Очистить все данные сообщества.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Начало работы**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Изучите API документацию**: Ознакомьтесь с доступными конечными точками, параметрами запросов, структурами ответов и методами аутентификации.
+2. **Выберите подход к разработке**: Используйте инструменты, такие как Chrome DevTools, для проверки сетевых запросов frontend приложения devkg и их воспроизведения в вашем коде. Также, API документация может предоставлять библиотеки или SDK для конкретных языков программирования.
+3. **Реализуйте API вызовы**: Интегрируйте выбранный подход в ваш frontend код для взаимодействия с API Piccolo Server.
+4. **Обработка ошибок**: Реализуйте механизмы обработки ошибок для корректного управления возможными сбоями API запросов или неожиданными ответами.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Дополнительные заметки**
 
-### `yarn eject`
+* Аутентификация: Обратитесь к конечным точкам `/auth` для регистрации и входа пользователя.
+* Формат данных: API в основном использует JSON для данных запросов и ответов.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Следуя этим шагам и используя предоставленную API документацию, вы сможете эффективно интегрировать frontend приложение devkg с API Piccolo Server.
